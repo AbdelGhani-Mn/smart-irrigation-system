@@ -8,5 +8,5 @@ A full-stack IoT-based smart irrigation system that automates watering decisions
 ![History](UI/History.png)
 ## ⚙️ System Control & Configuration
 
-![Sensor Settings](UI/Sensor Settings.png)
-![Water Tank](UI/Water Tank.png)
+![Sensor Settings](UI/SensorSettings.png)
+![Water Tank](UI/WaterTank.png)
