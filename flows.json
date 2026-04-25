@@ -1,0 +1,3454 @@
+[
+    {
+        "id": "0bdb569e9b5668b5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "mqtt_in_soil",
+        "type": "mqtt in",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil",
+        "topic": "esp32/soil",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "gauge_soil",
+                "d8be89721f3a72d6",
+                "e7c40f92c49fb478"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_in_temp",
+        "type": "mqtt in",
+        "z": "0bdb569e9b5668b5",
+        "name": "Temperature",
+        "topic": "esp32/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "gauge_temp",
+                "abbc5ffa70af081d",
+                "e7c40f92c49fb478"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_in_hum",
+        "type": "mqtt in",
+        "z": "0bdb569e9b5668b5",
+        "name": "Humidity",
+        "topic": "esp32/hum",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 320,
+        "wires": [
+            [
+                "gauge_hum",
+                "c57dfa41b7720568",
+                "e7c40f92c49fb478"
+            ]
+        ]
+    },
+    {
+        "id": "gauge_soil",
+        "type": "ui_gauge",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil Moisture",
+        "group": "dashboard_group",
+        "order": 3,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Soil Moisture",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "4095",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 150,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "gauge_temp",
+        "type": "ui_gauge",
+        "z": "0bdb569e9b5668b5",
+        "name": "Temperature",
+        "group": "dashboard_group",
+        "order": 4,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 150,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "gauge_hum",
+        "type": "ui_gauge",
+        "z": "0bdb569e9b5668b5",
+        "name": "Humidity",
+        "group": "dashboard_group",
+        "order": 5,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 140,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d8be89721f3a72d6",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "",
+        "group": "dashboard_group",
+        "order": 9,
+        "width": 6,
+        "height": 5,
+        "label": "Soil Moisture",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "4095",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "abbc5ffa70af081d",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "",
+        "group": "dashboard_group",
+        "order": 10,
+        "width": 6,
+        "height": 5,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-10",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 150,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c57dfa41b7720568",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "",
+        "group": "dashboard_group",
+        "order": 11,
+        "width": 6,
+        "height": 5,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 140,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3422738767bed1ac",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "Smart Garden:",
+        "info": "",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1f2ef554771f5b80",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "Create Sensor Data Table",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "CREATE TABLE IF NOT EXISTS sensor_data (   id INTEGER PRIMARY KEY AUTOINCREMENT,   timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,   temp REAL,   hum REAL,   soil INTEGER );",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1830,
+        "y": 620,
+        "wires": [
+            [
+                "1c034c691d2baf3c"
+            ]
+        ]
+    },
+    {
+        "id": "1c034c691d2baf3c",
+        "type": "sqlite",
+        "z": "0bdb569e9b5668b5",
+        "mydb": "c821e52d1149b916",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLite Init",
+        "x": 2150,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "82142120dbd6b487",
+        "type": "mqtt in",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil Logs",
+        "topic": "esp32/soil",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1580,
+        "y": 600,
+        "wires": [
+            [
+                "6b722750c7ab06de"
+            ]
+        ]
+    },
+    {
+        "id": "0863bea1d1f19541",
+        "type": "mqtt in",
+        "z": "0bdb569e9b5668b5",
+        "name": "Temp Logs",
+        "topic": "esp32/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1580,
+        "y": 660,
+        "wires": [
+            [
+                "6b722750c7ab06de"
+            ]
+        ]
+    },
+    {
+        "id": "a62385a2c53dc168",
+        "type": "mqtt in",
+        "z": "0bdb569e9b5668b5",
+        "name": "Hum Logs",
+        "topic": "esp32/hum",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1580,
+        "y": 720,
+        "wires": [
+            [
+                "6b722750c7ab06de"
+            ]
+        ]
+    },
+    {
+        "id": "6b722750c7ab06de",
+        "type": "join",
+        "z": "0bdb569e9b5668b5",
+        "name": "Join",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": true,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1760,
+        "y": 660,
+        "wires": [
+            [
+                "1a795ad3860df37a"
+            ]
+        ]
+    },
+    {
+        "id": "1a795ad3860df37a",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Filter changes",
+        "func": "// Save last values in context\nlet last = context.get('lastValues') || {};\n\n// Extract current values\nlet t = msg.payload[\"esp32/temp\"];\nlet h = msg.payload[\"esp32/hum\"];\nlet s = msg.payload[\"esp32/soil\"];\n\n// Define change tolerance (optional)\nlet delta = 2;\n\n// Compare\nif (\n    last.temp !== undefined &&\n    Math.abs(t - last.temp) < delta &&\n    Math.abs(h - last.hum) < delta &&\n    Math.abs(s - last.soil) < 100\n) {\n    // No significant change → skip\n    return null;\n}\n\n// Update stored values\ncontext.set('lastValues', { temp: t, hum: h, soil: s });\n\n// Forward message\nmsg.payload = { temp: t, hum: h, soil: s };\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1920,
+        "y": 660,
+        "wires": [
+            [
+                "641f660cf7beb4a8"
+            ]
+        ]
+    },
+    {
+        "id": "02a45a3938179e33",
+        "type": "sqlite",
+        "z": "0bdb569e9b5668b5",
+        "mydb": "c821e52d1149b916",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Sensor Data",
+        "x": 2270,
+        "y": 660,
+        "wires": [
+            [
+                "e780286457c2db80"
+            ]
+        ]
+    },
+    {
+        "id": "8465d4be17f219f3",
+        "type": "mqtt in",
+        "z": "0bdb569e9b5668b5",
+        "name": "Irrigation logs",
+        "topic": "esp32/pump",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "mqtt_broker_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1790,
+        "y": 720,
+        "wires": [
+            [
+                "0d37e485dccce83a"
+            ]
+        ]
+    },
+    {
+        "id": "0d37e485dccce83a",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Log Pump Session",
+        "func": "if (msg.payload === \"ON\") {\n    msg.topic = \"INSERT INTO irrigation_sessions (start_time) VALUES (datetime('now'))\";\n} else if (msg.payload === \"OFF\") {\n    msg.topic = \"UPDATE irrigation_sessions SET stop_time = datetime('now') WHERE stop_time IS NULL\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2030,
+        "y": 720,
+        "wires": [
+            [
+                "48506dd6e84d236e"
+            ]
+        ]
+    },
+    {
+        "id": "48506dd6e84d236e",
+        "type": "sqlite",
+        "z": "0bdb569e9b5668b5",
+        "mydb": "c821e52d1149b916",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Irrigation History",
+        "x": 2260,
+        "y": 720,
+        "wires": [
+            [
+                "52ccbb3c72d5b2e2"
+            ]
+        ]
+    },
+    {
+        "id": "641f660cf7beb4a8",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Insert SQL",
+        "func": "let t = msg.payload.temp;\nlet h = msg.payload.hum;\nlet s = msg.payload.soil;\n\nmsg.topic = `INSERT INTO sensor_data (temp, hum, soil) VALUES (${t}, ${h}, ${s})`;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2110,
+        "y": 660,
+        "wires": [
+            [
+                "02a45a3938179e33"
+            ]
+        ]
+    },
+    {
+        "id": "e780286457c2db80",
+        "type": "debug",
+        "z": "0bdb569e9b5668b5",
+        "name": "Sensor data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2450,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "64298fb13230b044",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "Create Irrigation History Table",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "CREATE TABLE IF NOT EXISTS irrigation_sessions (   id INTEGER PRIMARY KEY AUTOINCREMENT,   start_time DATETIME,   stop_time DATETIME );",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1840,
+        "y": 580,
+        "wires": [
+            [
+                "1c034c691d2baf3c"
+            ]
+        ]
+    },
+    {
+        "id": "52ccbb3c72d5b2e2",
+        "type": "debug",
+        "z": "0bdb569e9b5668b5",
+        "name": "Irrigation History",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2460,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "cac1ec9f2ad9dadb",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "     Database:",
+        "info": "",
+        "x": 1580,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "55c367b9bdc1de44",
+        "type": "ui_dropdown",
+        "z": "0bdb569e9b5668b5",
+        "name": "Sensor Limit",
+        "label": "Sensor Entries",
+        "tooltip": "",
+        "place": "",
+        "group": "group_sensor",
+        "order": 1,
+        "width": 14,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "10",
+                "value": "10",
+                "type": "str"
+            },
+            {
+                "label": "20",
+                "value": "20",
+                "type": "str"
+            },
+            {
+                "label": "50",
+                "value": "50",
+                "type": "str"
+            },
+            {
+                "label": "100",
+                "value": "100",
+                "type": "str"
+            }
+        ],
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 1590,
+        "y": 240,
+        "wires": [
+            [
+                "8f89629d12d5cbd3"
+            ]
+        ]
+    },
+    {
+        "id": "8f89629d12d5cbd3",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set msg.sensorLimit",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sensorLimit",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1800,
+        "y": 240,
+        "wires": [
+            [
+                "1b3808c90dd6cb4f"
+            ]
+        ]
+    },
+    {
+        "id": "1b3808c90dd6cb4f",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Query sensor_data",
+        "func": "let limit = msg.sensorLimit || 20;\nmsg.topic = `SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT ${limit}`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2050,
+        "y": 240,
+        "wires": [
+            [
+                "2a22dea60a58e240"
+            ]
+        ]
+    },
+    {
+        "id": "6fa075cdeaa24aad",
+        "type": "ui_dropdown",
+        "z": "0bdb569e9b5668b5",
+        "name": "Irrigation Limit",
+        "label": "Irrigation Sessions",
+        "tooltip": "",
+        "place": "",
+        "group": "group_irrigation",
+        "order": 1,
+        "width": 14,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "10",
+                "value": "10",
+                "type": "str"
+            },
+            {
+                "label": "20",
+                "value": "20",
+                "type": "str"
+            },
+            {
+                "label": "30",
+                "value": "30",
+                "type": "str"
+            }
+        ],
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 1600,
+        "y": 280,
+        "wires": [
+            [
+                "7b9cbc9baf64b39c"
+            ]
+        ]
+    },
+    {
+        "id": "7b9cbc9baf64b39c",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set msg.irrigationLimit",
+        "rules": [
+            {
+                "t": "set",
+                "p": "irrigationLimit",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1800,
+        "y": 280,
+        "wires": [
+            [
+                "1d36b38e9a654714"
+            ]
+        ]
+    },
+    {
+        "id": "1d36b38e9a654714",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Query irrigation_sessions",
+        "func": "let n = parseInt(msg.irrigationLimit)||20;\nmsg.topic = `\n  SELECT id,start_time,stop_time \n    FROM irrigation_sessions \n   WHERE stop_time IS NOT NULL \nORDER BY start_time DESC \n   LIMIT ${n}\n`;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2030,
+        "y": 280,
+        "wires": [
+            [
+                "2a22dea60a58e240"
+            ]
+        ]
+    },
+    {
+        "id": "2a22dea60a58e240",
+        "type": "sqlite",
+        "z": "0bdb569e9b5668b5",
+        "mydb": "c821e52d1149b916",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "smartgarden.db",
+        "x": 2260,
+        "y": 280,
+        "wires": [
+            [
+                "9c49bd8b50119977"
+            ]
+        ]
+    },
+    {
+        "id": "9c49bd8b50119977",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Route",
+        "func": "if (msg.payload && msg.payload.length && msg.payload[0].temp !== undefined) return [msg, null];\nif (msg.payload && msg.payload.length && msg.payload[0].start_time !== undefined) return [null, msg];\nreturn null;",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1590,
+        "y": 340,
+        "wires": [
+            [
+                "7c0c7e36273305b4",
+                "afb66da82b3c0c9e",
+                "657588da8e8e7813"
+            ],
+            [
+                "ce6da7cf9224ca91"
+            ]
+        ]
+    },
+    {
+        "id": "7c0c7e36273305b4",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Format Temp",
+        "func": "let temp = msg.payload.reverse().map(row => ({ x: Date.parse(row.timestamp), y: row.temp }));\nmsg.payload = [{ series: [\"Temp\"], data: [temp], labels: [] }];\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1850,
+        "y": 340,
+        "wires": [
+            [
+                "8db32410744216e0"
+            ]
+        ]
+    },
+    {
+        "id": "afb66da82b3c0c9e",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Format Hum",
+        "func": "let hum = msg.payload.reverse().map(row => ({ x: Date.parse(row.timestamp), y: row.hum }));\nmsg.payload = [{ series: [\"Humidity\"], data: [hum], labels: [] }];\nreturn msg;",
+        "outputs": 1,
+        "x": 1850,
+        "y": 380,
+        "wires": [
+            [
+                "0fbcbe0d7ae40cb0"
+            ]
+        ]
+    },
+    {
+        "id": "657588da8e8e7813",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Format Soil",
+        "func": "let soil = msg.payload.reverse().map(row => ({ x: Date.parse(row.timestamp), y: row.soil }));\nmsg.payload = [{ series: [\"Soil\"], data: [soil], labels: [] }];\nreturn msg;",
+        "outputs": 1,
+        "x": 1850,
+        "y": 420,
+        "wires": [
+            [
+                "7f7416a091ae6ea3"
+            ]
+        ]
+    },
+    {
+        "id": "8db32410744216e0",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "Temp Chart",
+        "group": "group_sensor",
+        "order": 2,
+        "width": 14,
+        "height": 5,
+        "label": "Temperature ",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "100",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ff0000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2170,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0fbcbe0d7ae40cb0",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "Humidity Chart",
+        "group": "group_sensor",
+        "order": 3,
+        "width": 14,
+        "height": 5,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "100",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#00aaff",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2180,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f7416a091ae6ea3",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil Chart",
+        "group": "group_sensor",
+        "order": 4,
+        "width": 14,
+        "height": 6,
+        "label": "Soil Moisture",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "100",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#228b22",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2160,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dbb39e03ea70074a",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "Irrigation Sessions",
+        "group": "group_irrigation",
+        "order": 2,
+        "width": 14,
+        "height": 16,
+        "label": "Irrigation History ",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "D/M",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "8",
+        "removeOlder": "100",
+        "removeOlderPoints": "100",
+        "removeOlderUnit": "60",
+        "cutout": "",
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#339933",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2190,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d35e6ce2263b6512",
+        "type": "ui_dropdown",
+        "z": "0bdb569e9b5668b5",
+        "name": "Pump A Mode Dropdown",
+        "label": "Pump A Mode",
+        "tooltip": "",
+        "place": "",
+        "group": "group_GHA",
+        "order": 1,
+        "width": 10,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Automatic",
+                "value": "auto",
+                "type": "str"
+            },
+            {
+                "label": "Manual",
+                "value": "manual",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 130,
+        "y": 620,
+        "wires": [
+            [
+                "8ac31f5d7f14b46b",
+                "f05bc7ab8d510a44"
+            ]
+        ]
+    },
+    {
+        "id": "6d51f11658f88d89",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Store mode in flow",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "a22ef7908e731d6e"
+            ]
+        ]
+    },
+    {
+        "id": "a22ef7908e731d6e",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Send Mode",
+        "func": "msg.payload = flow.get(\"mode\") || \"auto\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 560,
+        "wires": [
+            [
+                "41d317c957ab3087"
+            ]
+        ]
+    },
+    {
+        "id": "ae3dccc2bdbbe519",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "group_GHA",
+        "name": "Pump Buttons (Farmer Page)",
+        "order": 2,
+        "width": 5,
+        "height": 2,
+        "format": "\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        scope.manualMode = payload === \"manual\";\n    });\n\n    scope.sendIfAllowed = function(state) {\n        if (state === \"ON\" || state === \"OFF\") {\n            scope.send({ payload: state });\n        }\n    };\n})(scope);\n</script>\n\n<div ng-if=\"manualMode\">\n    <md-button class=\"md-raised md-primary\" ng-click=\"sendIfAllowed('ON')\">Pump ON</md-button>\n    <md-button class=\"md-raised md-warn\" ng-click=\"sendIfAllowed('OFF')\">Pump OFF</md-button>\n</div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 800,
+        "y": 620,
+        "wires": [
+            [
+                "35c8cd756dd06048",
+                "72973622240f21c5"
+            ]
+        ]
+    },
+    {
+        "id": "35c8cd756dd06048",
+        "type": "switch",
+        "z": "0bdb569e9b5668b5",
+        "name": "Filter ON/OFF",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 600,
+        "y": 500,
+        "wires": [
+            [
+                "14ce814f146147bd"
+            ],
+            [
+                "14ce814f146147bd"
+            ]
+        ]
+    },
+    {
+        "id": "14ce814f146147bd",
+        "type": "mqtt out",
+        "z": "0bdb569e9b5668b5",
+        "name": "Pump MQTT",
+        "topic": "esp32/pump",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker_local",
+        "x": 830,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e7c40f92c49fb478",
+        "type": "join",
+        "z": "0bdb569e9b5668b5",
+        "name": "join",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": true,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "f0284aada468501c"
+            ]
+        ]
+    },
+    {
+        "id": "7600e42900f5d3d7",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Auto Irrigation Func",
+        "func": "// 0. Time throttle\nlet now = Date.now();\nlet lastRun = flow.get(\"lastIrrigationRun\") || 0;\nlet interval = 20 * 1 * 1000;\n\nif (now - lastRun < interval) {\n    //return { payload: \"OFF\" };\n    return null;\n}\nflow.set(\"lastIrrigationRun\", now);\n\n// 1. Mode check\nlet mode = flow.get(\"mode\") || \"auto\";\nif (mode !== \"auto\") return null;\n\n// 2. Rain check\n//let rain = flow.get(\"willRain\") || false;\n//if (rain) {\n  //  node.warn(\"Skipping irrigation: rain expected\");\n    //return { payload: \"OFF\" };\n//}\n\n// 3. Sensor unpack\nlet { temp, hum, soil } = msg.payload || {};\nif (temp === undefined || hum === undefined || soil === undefined) {\n    node.warn(\"Missing sensor data\");\n    return null;\n}\n\n// ✅ 3.1 Force numeric conversion (fixes false positives)\ntemp = Number(temp);\nhum  = Number(hum);\nsoil = Number(soil);\n\n// 4. Hot hours check\nlet hour = new Date().getHours();\nif (hour >= 9 && hour <= 14) {\n    node.warn(\"Skipped due to heat hours\");\n    return { payload: \"OFF\" };\n}\n\n// 5. Get thresholds\nlet soilMin = flow.get('soilMin') ?? 3000;\nlet soilMax = flow.get('soilMax') ?? 3950;\nlet tempMax = flow.get('tempMax') ?? 30;\nlet humMin  = flow.get('humMin')  ?? 35;\n\n// 6. Final logic\nif (\n    !isNaN(soil) && !isNaN(temp) && !isNaN(hum) &&\n    soil > soilMin && soil < soilMax &&\n    temp < tempMax &&\n    hum > humMin\n) {\n    node.warn(\"Pump ON: conditions met\");\n    node.warn(`Sensor check → soil=${soil}, temp=${temp}, hum=${hum}`);\n    return { payload: \"ON\" };\n} else {\n    node.warn(`Pump OFF: conditions not met → soil=${soil}, temp=${temp}, hum=${hum}`);\n    return { payload: \"OFF\" };\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 460,
+        "wires": [
+            [
+                "14ce814f146147bd"
+            ]
+        ]
+    },
+    {
+        "id": "f0284aada468501c",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Rename Function",
+        "func": "msg.payload = {\n  soil: msg.payload[\"esp32/soil\"],\n  temp: msg.payload[\"esp32/temp\"],\n  hum: msg.payload[\"esp32/hum\"]\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 420,
+        "wires": [
+            [
+                "7600e42900f5d3d7"
+            ]
+        ]
+    },
+    {
+        "id": "04df4bc6cb48df50",
+        "type": "http request",
+        "z": "0bdb569e9b5668b5",
+        "name": "OpenWeather API",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/forecast?lat=36.263030&lon=2.765611&appid=26981609cc87f1679c7f50513e397b97&units=metric",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "70efcd90d71a271b"
+            ]
+        ]
+    },
+    {
+        "id": "302b32fb92fd76bc",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "repeat every 3h",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10800",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 490,
+        "y": 220,
+        "wires": [
+            [
+                "04df4bc6cb48df50"
+            ]
+        ]
+    },
+    {
+        "id": "70efcd90d71a271b",
+        "type": "json",
+        "z": "0bdb569e9b5668b5",
+        "name": "Parse",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "c15a3a14fce70791",
+                "71fd139fb98c17da",
+                "96492fac3831e4dc"
+            ]
+        ]
+    },
+    {
+        "id": "c15a3a14fce70791",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "WIll It Rain Function",
+        "func": "let forecast = msg.payload.list || [];\n\nlet willRain = forecast.some(entry => {\n    return entry.rain && entry.rain[\"3h\"] > 0;\n});\n\nflow.set(\"willRain\", willRain);\nnode.warn(\"Rain expected? \" + willRain);\n\nreturn msg;  // so you can pass it to the template too\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce6da7cf9224ca91",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Format Irrigation (single payload)",
+        "func": "// msg.payload is array of rows [{start_time,stop_time},…]\nlet rows = msg.payload || [];\n\nlet bars = [];\nlet labels = [];\n\nfor (let r of rows) {\n  if (!r.start_time || !r.stop_time) continue;\n  let start = new Date(r.start_time).getTime();\n  let stop  = new Date(r.stop_time).getTime();\n  let dur   = +(((stop - start) / 60000).toFixed(1));\n  let label = new Date(start).toLocaleString();\n  bars.push(dur);\n  labels.push(label);\n}\n\n// Build a single msg.payload that replaces the chart data\nmsg.payload = [\n  {\n    series: [\"Duration (min)\"],\n    data: [bars],\n    labels: labels\n  }\n];\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1920,
+        "y": 480,
+        "wires": [
+            [
+                "dbb39e03ea70074a"
+            ]
+        ]
+    },
+    {
+        "id": "f8b1f98178e9f554",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "Rain API:",
+        "info": "",
+        "x": 420,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6c6f875c15ac313e",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "Database Simulation with Charts📊:",
+        "info": "",
+        "x": 1660,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "soil_min_input",
+        "type": "ui_numeric",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil Min",
+        "label": "Soil Min (start ≥)",
+        "tooltip": "",
+        "group": "settingsGroup",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "soilMin",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 4095,
+        "step": "5",
+        "className": "",
+        "x": 1140,
+        "y": 360,
+        "wires": [
+            [
+                "set_soil_min"
+            ]
+        ]
+    },
+    {
+        "id": "set_soil_min",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set soilMin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "soilMin",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1150,
+        "y": 320,
+        "wires": [
+            [
+                "ca168c358c7d51d0"
+            ]
+        ]
+    },
+    {
+        "id": "soil_max_input",
+        "type": "ui_numeric",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil Max",
+        "label": "Soil Max (stop ≤)",
+        "tooltip": "",
+        "group": "settingsGroup",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "soilMax",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 4095,
+        "step": "5",
+        "className": "",
+        "x": 1140,
+        "y": 440,
+        "wires": [
+            [
+                "set_soil_max"
+            ]
+        ]
+    },
+    {
+        "id": "set_soil_max",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set soilMax",
+        "rules": [
+            {
+                "t": "set",
+                "p": "soilMax",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1150,
+        "y": 400,
+        "wires": [
+            [
+                "ca168c358c7d51d0"
+            ]
+        ]
+    },
+    {
+        "id": "temp_max_input",
+        "type": "ui_numeric",
+        "z": "0bdb569e9b5668b5",
+        "name": "Temp Max",
+        "label": "Temp Max (°C)",
+        "tooltip": "",
+        "group": "settingsGroup",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "tempMax",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": -10,
+        "max": 60,
+        "step": 0.5,
+        "className": "",
+        "x": 1150,
+        "y": 520,
+        "wires": [
+            [
+                "set_temp_max"
+            ]
+        ]
+    },
+    {
+        "id": "set_temp_max",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set tempMax",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempMax",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1150,
+        "y": 480,
+        "wires": [
+            [
+                "ca168c358c7d51d0"
+            ]
+        ]
+    },
+    {
+        "id": "hum_min_input",
+        "type": "ui_numeric",
+        "z": "0bdb569e9b5668b5",
+        "name": "Hum Min",
+        "label": "Hum Min (%)",
+        "group": "settingsGroup",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "topic": "humMin",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "x": 1140,
+        "y": 600,
+        "wires": [
+            [
+                "set_hum_min"
+            ]
+        ]
+    },
+    {
+        "id": "set_hum_min",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set humMin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humMin",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1150,
+        "y": 560,
+        "wires": [
+            [
+                "ca168c358c7d51d0"
+            ]
+        ]
+    },
+    {
+        "id": "6183157bf04d27b1",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "Init Settings",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "x": 1390,
+        "y": 400,
+        "wires": [
+            [
+                "ca168c358c7d51d0"
+            ]
+        ]
+    },
+    {
+        "id": "ca168c358c7d51d0",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Build Settings Payload",
+        "func": "// read all four values from flow\nlet soilMin = flow.get('soilMin') || 3000;\nlet soilMax = flow.get('soilMax') || 3950;\nlet tempMax = flow.get('tempMax') || 30;\nlet humMin  = flow.get('humMin')  || 35;\n\nmsg.payload = { soilMin, soilMax, tempMax, humMin };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1380,
+        "y": 440,
+        "wires": [
+            [
+                "95d767ee3e91bbda"
+            ]
+        ]
+    },
+    {
+        "id": "95d767ee3e91bbda",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "settingsGroup",
+        "name": "Show Current Settings",
+        "order": 5,
+        "width": 12,
+        "height": 3,
+        "format": "<div style=\"padding:8px; border:1px solid #ccc;\">\n  <strong>Current Thresholds:</strong><br/>\n  Soil Min: {{msg.payload.soilMin}}<br/>\n  Soil Max: {{msg.payload.soilMax}}<br/>\n  Temp Max: {{msg.payload.tempMax}}°C<br/>\n  Hum Min:  {{msg.payload.humMin}}%<br/>\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1380,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "inj_fake_soil",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil B",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "fake/esp32/soil",
+        "payload": "1500",
+        "payloadType": "num",
+        "x": 120,
+        "y": 940,
+        "wires": [
+            [
+                "join_B",
+                "4e2c3d96e669b1d6",
+                "e4e74c89f21c6b8a"
+            ]
+        ]
+    },
+    {
+        "id": "inj_fake_temp",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "Temp B",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "fake/esp32/temp",
+        "payload": "25.5",
+        "payloadType": "num",
+        "x": 320,
+        "y": 980,
+        "wires": [
+            [
+                "join_B",
+                "013bbe5036a79dd0",
+                "d8de7c6ff00cc569"
+            ]
+        ]
+    },
+    {
+        "id": "inj_fake_hum",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "Hum B",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "fake/esp32/hum",
+        "payload": "50",
+        "payloadType": "num",
+        "x": 520,
+        "y": 980,
+        "wires": [
+            [
+                "join_B",
+                "7843b5615560b8fb",
+                "842ed7b7d8125678"
+            ]
+        ]
+    },
+    {
+        "id": "join_B",
+        "type": "join",
+        "z": "0bdb569e9b5668b5",
+        "name": "Join B",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "",
+        "joinerType": "str",
+        "useparts": true,
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 300,
+        "y": 940,
+        "wires": [
+            [
+                "fn_rename_B"
+            ]
+        ]
+    },
+    {
+        "id": "fn_rename_B",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Rename B",
+        "func": "msg.payload={\n    soil:msg.payload['fake/esp32/soil'],\n    temp:msg.payload['fake/esp32/temp'],\n    hum:msg.payload['fake/esp32/hum']\n    };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 940,
+        "wires": [
+            [
+                "fn_auto_B"
+            ]
+        ]
+    },
+    {
+        "id": "fn_auto_B",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Auto Logic B",
+        "func": "let mode=flow.get('modeB')||'auto';\nif(mode!=='auto')return null;\nmsg.topic='fake/esp32/pump';\nmsg.payload='OFF';\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 940,
+        "wires": [
+            [
+                "mqtt_B"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_B",
+        "type": "mqtt out",
+        "z": "0bdb569e9b5668b5",
+        "name": "Pump B MQTT",
+        "topic": "fake/esp32/pump",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker_local",
+        "x": 900,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "dropdown_mode_B",
+        "type": "ui_dropdown",
+        "z": "0bdb569e9b5668b5",
+        "name": "Pump B Mode Dropdown",
+        "label": "Pump B Mode",
+        "tooltip": "",
+        "place": "",
+        "group": "group_GHB",
+        "order": 1,
+        "width": 10,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Automatic",
+                "value": "auto",
+                "type": "str"
+            },
+            {
+                "label": "Manual",
+                "value": "manual",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 130,
+        "y": 880,
+        "wires": [
+            [
+                "change_store_mode_B",
+                "8d99d78956aeb244"
+            ]
+        ]
+    },
+    {
+        "id": "change_store_mode_B",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Store modeB in flow",
+        "rules": [
+            {
+                "t": "set",
+                "p": "modeB",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 380,
+        "y": 880,
+        "wires": [
+            [
+                "fn_send_mode_B"
+            ]
+        ]
+    },
+    {
+        "id": "fn_send_mode_B",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Send modeB",
+        "func": "msg.payload = flow.get(\"modeB\") || \"auto\";\nreturn msg;",
+        "outputs": 1,
+        "x": 590,
+        "y": 880,
+        "wires": [
+            [
+                "template_buttons_B"
+            ]
+        ]
+    },
+    {
+        "id": "template_buttons_B",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "group_GHB",
+        "name": "Pump B Buttons (Template)",
+        "order": 2,
+        "width": 5,
+        "height": 2,
+        "format": "<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        scope.manualMode = payload === \"manual\";\n    });\n    scope.sendIfAllowed = function(state) {\n        if (state === \"ON\" || state === \"OFF\") {\n            scope.send({ payload: state });\n        }\n    };\n})(scope);\n</script>\n\n<div ng-if=\"manualMode\">\n  <md-button class=\"md-raised md-primary\" ng-click=\"sendIfAllowed('ON')\">Pump ON</md-button>\n  <md-button class=\"md-raised md-warn\"    ng-click=\"sendIfAllowed('OFF')\">Pump OFF</md-button>\n</div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 800,
+        "y": 880,
+        "wires": [
+            [
+                "e454e554f985325b",
+                "fn_send_mode_B"
+            ]
+        ]
+    },
+    {
+        "id": "e3d9c35a0f35b30a",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "Sensor Settings A:",
+        "info": "",
+        "x": 1110,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d9a7e83818cbc38f",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "A Fake second ESP32:",
+        "info": "",
+        "x": 120,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "fcb2fe411ac1f981",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "Plant Based Irrigation API:",
+        "info": "",
+        "x": 460,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "eb165cf13de8cda2",
+        "type": "http request",
+        "z": "0bdb569e9b5668b5",
+        "name": "GET /plants/{id}",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://trefle.io/api/v1/species/{{payload}}?token=LJ6XnpyItY-sotiujYR7-42ko4rcOLLV4BxdhZw9CGE",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 930,
+        "y": 160,
+        "wires": [
+            [
+                "plant_info_ui",
+                "368a5540c343bfa7",
+                "6e8f6199bb0581f9",
+                "4c046b0ea9b49f0e"
+            ]
+        ]
+    },
+    {
+        "id": "1ec274386c0bbb30",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "Fetch Crop List",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "",
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "7fe9a59df9c1aa2c"
+            ]
+        ]
+    },
+    {
+        "id": "7fe9a59df9c1aa2c",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Build Trefle URLs",
+        "func": "let cached = flow.get(\"cachedCropOptions\");\nif (cached) {\n    // Skip HTTP requests, just return cached options\n    msg.payload = cached.payload;\n    msg.options = cached.options;\n    msg.cached = true;\n    return [msg, null]; // Output 1: cached path\n}\n\n// No cache: build URLs for API request\nlet token = \"LJ6XnpyItY-sotiujYR7-42ko4rcOLLV4BxdhZw9CGE\";\nlet urls = [];\nfor (let i = 1; i <= 5; i++) {\n    urls.push(`https://trefle.io/api/v1/plants?filter[edible]=true&page=${i}&token=${token}`);\n}\nmsg.payload = urls;\nmsg.cached = false;\nreturn [null, msg]; // Output 2: go fetch pages\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 80,
+        "wires": [
+            [
+                "419d7da7bf28dc72"
+            ],
+            [
+                "c2b9297d178d5c8d"
+            ]
+        ]
+    },
+    {
+        "id": "c2b9297d178d5c8d",
+        "type": "split",
+        "z": "0bdb569e9b5668b5",
+        "name": "Split URLs",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload",
+        "x": 870,
+        "y": 120,
+        "wires": [
+            [
+                "84b5d2372ff31479"
+            ]
+        ]
+    },
+    {
+        "id": "84b5d2372ff31479",
+        "type": "http request",
+        "z": "0bdb569e9b5668b5",
+        "name": "GET Crop Page",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "{{{payload}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 460,
+        "y": 120,
+        "wires": [
+            [
+                "deca65bfe0973f97"
+            ]
+        ]
+    },
+    {
+        "id": "deca65bfe0973f97",
+        "type": "join",
+        "z": "0bdb569e9b5668b5",
+        "name": "Join Crop Pages",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "",
+        "joiner": "",
+        "joinerType": "str",
+        "useparts": true,
+        "accumulate": false,
+        "timeout": "",
+        "count": "5",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 650,
+        "y": 120,
+        "wires": [
+            [
+                "419d7da7bf28dc72"
+            ]
+        ]
+    },
+    {
+        "id": "419d7da7bf28dc72",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Build Crop Options",
+        "func": "// Only rebuild options if not already cached\nlet cached = flow.get(\"cachedCropOptions\");\nif (cached) {\n    msg.payload = cached.payload;\n    msg.options = cached.options;\n    return msg;\n}\n\n// Build options from API data\nlet all = [].concat(...msg.payload.map(p => p.data || []));\nlet opts = all.filter(p => p.common_name).map(p => ({\n    label: p.common_name,\n    value: p.id.toString()\n}));\n\nmsg.payload = opts.length ? opts[0].value : \"\";\nmsg.options = opts;\n\n// Cache it\nflow.set(\"cachedCropOptions\", {\n    payload: msg.payload,\n    options: opts\n});\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 80,
+        "wires": [
+            [
+                "c7885bc36e5f917b",
+                "7911232fb22b3166"
+            ]
+        ]
+    },
+    {
+        "id": "7911232fb22b3166",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "group_GHA",
+        "name": "Crop Selector (HTML)",
+        "order": 4,
+        "width": 15,
+        "height": 2,
+        "format": "<div style=\"padding:8px;\">\n  <label style=\"font-weight:bold;\">Crop B:</label>\n  <select ng-model=\"selected\" ng-options=\"opt.value as opt.label for opt in msg.options\"\n          ng-change=\"send({ payload: selected, options: options })\"\n style=\"width:100%;padding:4px;margin-top:4px;\">\n    <option value=\"\" disabled>-- select a crop --</option>\n  </select>\n</div>\n<script>\n(function(scope){\n  scope.$watch('msg.options', o=>{\n    scope.options = o || [];\n    scope.selected = scope.msg.payload;\n  });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1110,
+        "y": 120,
+        "wires": [
+            [
+                "eb165cf13de8cda2"
+            ]
+        ]
+    },
+    {
+        "id": "c7885bc36e5f917b",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "group_GHB",
+        "name": "Crop Selector (HTML)",
+        "order": 4,
+        "width": 15,
+        "height": 2,
+        "format": "<div style=\"padding:8px;\">\n  <label style=\"font-weight:bold;\">Crop B:</label>\n  <select ng-model=\"selected\" ng-options=\"opt.value as opt.label for opt in msg.options\"\n          ng-change=\"send({ payload: selected, options: options })\"\n style=\"width:100%;padding:4px;margin-top:4px;\">\n    <option value=\"\" disabled>-- select a crop --</option>\n  </select>\n</div>\n<script>\n(function(scope){\n  scope.$watch('msg.options', o=>{\n    scope.options = o || [];\n    scope.selected = scope.msg.payload;\n  });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1110,
+        "y": 80,
+        "wires": [
+            [
+                "c3e8e4a234d17d8f"
+            ]
+        ]
+    },
+    {
+        "id": "094b7869498d6d90",
+        "type": "ui_dropdown",
+        "z": "0bdb569e9b5668b5",
+        "name": "Pump A Mode Dropdown",
+        "label": "Pump A Mode",
+        "tooltip": "",
+        "place": "",
+        "group": "dashboard_group",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Automatic",
+                "value": "auto",
+                "type": "str"
+            },
+            {
+                "label": "Manual",
+                "value": "manual",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 130,
+        "y": 560,
+        "wires": [
+            [
+                "6d51f11658f88d89",
+                "8ac31f5d7f14b46b"
+            ]
+        ]
+    },
+    {
+        "id": "41d317c957ab3087",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "dashboard_group",
+        "name": "Pump Buttons (Mnt Page)",
+        "order": 7,
+        "width": 5,
+        "height": 1,
+        "format": "\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        scope.manualMode = payload === \"manual\";\n    });\n\n    scope.sendIfAllowed = function(state) {\n        if (state === \"ON\" || state === \"OFF\") {\n            scope.send({ payload: state });\n        }\n    };\n})(scope);\n</script>\n\n<div ng-if=\"manualMode\">\n    <md-button class=\"md-raised md-primary\" ng-click=\"sendIfAllowed('ON')\">Pump ON</md-button>\n    <md-button class=\"md-raised md-warn\" ng-click=\"sendIfAllowed('OFF')\">Pump OFF</md-button>\n</div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 810,
+        "y": 560,
+        "wires": [
+            [
+                "35c8cd756dd06048",
+                "a22ef7908e731d6e"
+            ]
+        ]
+    },
+    {
+        "id": "e33264041a46fa66",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "Auto/Manual Pump Mode:",
+        "info": "",
+        "x": 130,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "plant_info_ui",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "group_GHA",
+        "name": "Crop Info Card A",
+        "order": 5,
+        "width": 15,
+        "height": 14,
+        "format": "<div style=\"padding:8px; border:1px solid #ddd; border-radius:4px;\">\n  <h3 style=\"margin:0 0 6px;\">\n    {{msg.payload.data.common_name || '—'}}\n    <small style=\"font-weight:normal; color:#666;\">\n      ({{msg.payload.data.scientific_name || '—'}})\n    </small>\n  </h3>\n\n  <p style=\"margin:4px 0;\">\n    <strong>Family:</strong>\n    {{msg.payload.data.family.common_name || msg.payload.data.family || '—'}}\n  </p>\n\n  <p style=\"margin:4px 0;\">\n    <strong>Sowing:</strong>\n    {{msg.payload.data.sowing || 'Unknown'}}\n  </p>\n\n  <!-- Inserted fixed-growth block here -->\n  <p style=\"margin:4px 0;\">\n    <strong>pH Range:</strong>\n    {{ (msg.payload.data.growth && msg.payload.data.growth.ph_minimum) \n         ? msg.payload.data.growth.ph_minimum \n         : 5.5 }}\n    – \n    {{ (msg.payload.data.growth && msg.payload.data.growth.ph_maximum) \n         ? msg.payload.data.growth.ph_maximum \n         : 7.0 }}\n  </p>\n\n  <p style=\"margin:4px 0;\">\n    <strong>Ideal Temperature:</strong>\n    {{ (msg.payload.data.growth \n         && msg.payload.data.growth.minimum_temperature \n         && msg.payload.data.growth.minimum_temperature.celsius) \n         ? msg.payload.data.growth.minimum_temperature.celsius \n         : 15 }} °C\n    –\n    {{ (msg.payload.data.growth \n         && msg.payload.data.growth.maximum_temperature \n         && msg.payload.data.growth.maximum_temperature.celsius) \n         ? msg.payload.data.growth.maximum_temperature.celsius \n         : 30 }} °C\n  </p>\n\n  <p style=\"margin:4px 0;\">\n    <strong>Days to Harvest:</strong>\n    {{ msg.payload.data.days_to_harvest || 60 }}\n  </p>\n\n  <div ng-if=\"msg.payload.data.image_url\" style=\"text-align:center; margin-top:8px;\">\n    <img\n      ng-src=\"{{msg.payload.data.image_url}}\"\n      alt=\"{{msg.payload.data.common_name}}\"\n      style=\"\n        width:650px;\n        height:470px;\n        object-fit:contain;\n        border-radius:4px;\n      \"\n    />\n  </div>\n</div>\n",
+        "storeOutMessages": false,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1150,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3e8e4a234d17d8f",
+        "type": "http request",
+        "z": "0bdb569e9b5668b5",
+        "name": "GET /plants/{id}",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://trefle.io/api/v1/species/{{payload}}?token=LJ6XnpyItY-sotiujYR7-42ko4rcOLLV4BxdhZw9CGE",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 930,
+        "y": 40,
+        "wires": [
+            [
+                "9ff175e0d6fae3c8",
+                "1efc88c1f3c04299"
+            ]
+        ]
+    },
+    {
+        "id": "9ff175e0d6fae3c8",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "group_GHB",
+        "name": "Crop Info Card B",
+        "order": 5,
+        "width": 15,
+        "height": 14,
+        "format": "<div style=\"padding:8px; border:1px solid #ddd; border-radius:4px;\">\n  <h3 style=\"margin:0 0 6px;\">\n    {{msg.payload.data.common_name || '—'}}\n    <small style=\"font-weight:normal; color:#666;\">\n      ({{msg.payload.data.scientific_name || '—'}})\n    </small>\n  </h3>\n\n  <p style=\"margin:4px 0;\">\n    <strong>Family:</strong>\n    {{msg.payload.data.family.common_name || msg.payload.data.family || '—'}}\n  </p>\n\n  <p style=\"margin:4px 0;\">\n    <strong>Sowing:</strong>\n    {{msg.payload.data.sowing || 'Unknown'}}\n  </p>\n\n  <!-- Inserted fixed-growth block here -->\n  <p style=\"margin:4px 0;\">\n    <strong>pH Range:</strong>\n    {{ (msg.payload.data.growth && msg.payload.data.growth.ph_minimum) \n         ? msg.payload.data.growth.ph_minimum \n         : 5.5 }}\n    – \n    {{ (msg.payload.data.growth && msg.payload.data.growth.ph_maximum) \n         ? msg.payload.data.growth.ph_maximum \n         : 7.0 }}\n  </p>\n\n  <p style=\"margin:4px 0;\">\n    <strong>Ideal Temperature:</strong>\n    {{ (msg.payload.data.growth \n         && msg.payload.data.growth.minimum_temperature \n         && msg.payload.data.growth.minimum_temperature.celsius) \n         ? msg.payload.data.growth.minimum_temperature.celsius \n         : 15 }} °C\n    –\n    {{ (msg.payload.data.growth \n         && msg.payload.data.growth.maximum_temperature \n         && msg.payload.data.growth.maximum_temperature.celsius) \n         ? msg.payload.data.growth.maximum_temperature.celsius \n         : 30 }} °C\n  </p>\n\n  <p style=\"margin:4px 0;\">\n    <strong>Days to Harvest:</strong>\n    {{ msg.payload.data.days_to_harvest || 60 }}\n  </p>\n\n  <div ng-if=\"msg.payload.data.image_url\" style=\"text-align:center; margin-top:8px;\">\n    <img\n      ng-src=\"{{msg.payload.data.image_url}}\"\n      alt=\"{{msg.payload.data.common_name}}\"\n      style=\"\n        width:650px;\n        height:470px;\n        object-fit:contain;\n        border-radius:4px;\n      \"\n    />\n  </div>\n</div>\n",
+        "storeOutMessages": false,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1140,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "368a5540c343bfa7",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "d": true,
+        "name": "Extract Growth Ranges",
+        "func": "let data = msg.cached ? msg.payload : msg.payload?.data;\n\nlet g = data?.attributes?.growth || {};\nlet name = data?.common_name || \"Unknown Crop\";\n\n// Cache it if not already cached\nif (!msg.cached) {\n    let cropId = data?.id;\n    if (cropId) {\n        flow.set(\"crop_\" + cropId, data);\n    }\n}\n\nflow.set('cropName', name);\nflow.set('cropTempMin', g.temperature_min);\nflow.set('cropTempMax', g.temperature_max);\nflow.set('cropMoistureMin', g.moisture_min);\nflow.set('cropMoistureMax', g.moisture_max);\n\nmsg.payload = \"Thresholds updated\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 200,
+        "wires": [
+            [
+                "ab1b1ab59ae83bc6"
+            ]
+        ]
+    },
+    {
+        "id": "ab1b1ab59ae83bc6",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "d": true,
+        "name": "Get Crop Thresholds ",
+        "func": "msg.payload = {\n  soilMin: flow.get(\"cropMoistureMin\"),\n  soilMax: flow.get(\"cropMoistureMax\"),\n  tempMin: flow.get(\"cropTempMin\"),\n  tempMax: flow.get(\"cropTempMax\")\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1210,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e8f6199bb0581f9",
+        "type": "debug",
+        "z": "0bdb569e9b5668b5",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "mode_status_display_monitoring",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "dashboard_group",
+        "name": "Mode Display (Monitoring)",
+        "order": 6,
+        "width": 5,
+        "height": 1,
+        "format": "<div style=\"font-weight:bold;font-size:16px\">Mode: <span style=\"color:#2196F3\">{{msg.payload === 'manual' ? 'Manual' : 'Automatic'}}</span></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "mode_status_display_farmer",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "group_GHA",
+        "name": "Mode Display (Farmer)",
+        "order": 3,
+        "width": 10,
+        "height": 1,
+        "format": "<div style=\"font-weight:bold;font-size:16px\">Mode: <span style=\"color:#2196F3\">{{msg.payload === 'manual' ? 'Manual' : 'Automatic'}}</span></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 680,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ac31f5d7f14b46b",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Sync Mode to Flow + UI",
+        "func": "// Store mode in flow\nflow.set(\"mode\", msg.payload);\n\n// Send to both dropdowns if not already from that node\nif (msg.from !== \"farmer\") {\n    node.send({\n        payload: msg.payload,\n        ui_control: { options: [\n            { label: \"Automatic\", value: \"auto\" },\n            { label: \"Manual\", value: \"manual\" }\n        ] },\n        from: \"monitoring\",\n        _dropdown: \"d35e6ce2263b6512\" // Farmer dropdown\n    });\n}\n\nif (msg.from !== \"monitoring\") {\n    node.send({\n        payload: msg.payload,\n        ui_control: { options: [\n            { label: \"Automatic\", value: \"auto\" },\n            { label: \"Manual\", value: \"manual\" }\n        ] },\n        from: \"farmer\",\n        _dropdown: \"094b7869498d6d90\" // Monitoring dropdown\n    });\n}\n\n// Also update buttons\nreturn { payload: msg.payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 660,
+        "wires": [
+            [
+                "mode_status_display_farmer",
+                "mode_status_display_monitoring"
+            ]
+        ]
+    },
+    {
+        "id": "50eafa0e663dda14",
+        "type": "ui_numeric",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil Min",
+        "label": "Soil Min (start ≥)",
+        "tooltip": "",
+        "group": "c6e9b713961f2f2d",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "soilMinB",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 4095,
+        "step": "5",
+        "className": "",
+        "x": 1120,
+        "y": 720,
+        "wires": [
+            [
+                "56cea7b808c1b609"
+            ]
+        ]
+    },
+    {
+        "id": "56cea7b808c1b609",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set soilMin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "soilMinB",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1130,
+        "y": 680,
+        "wires": [
+            [
+                "d12a806a80b9c0fb"
+            ]
+        ]
+    },
+    {
+        "id": "98ee5237c27bd3b9",
+        "type": "ui_numeric",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil Max",
+        "label": "Soil Max (stop ≤)",
+        "tooltip": "",
+        "group": "c6e9b713961f2f2d",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "soilMaxB",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 4095,
+        "step": "5",
+        "className": "",
+        "x": 1120,
+        "y": 800,
+        "wires": [
+            [
+                "e5eb00fe15b15b16"
+            ]
+        ]
+    },
+    {
+        "id": "e5eb00fe15b15b16",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set soilMax",
+        "rules": [
+            {
+                "t": "set",
+                "p": "soilMaxB",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1130,
+        "y": 760,
+        "wires": [
+            [
+                "d12a806a80b9c0fb"
+            ]
+        ]
+    },
+    {
+        "id": "0edec11ed6cdacc8",
+        "type": "ui_numeric",
+        "z": "0bdb569e9b5668b5",
+        "name": "Temp Max",
+        "label": "Temp Max (°C)",
+        "tooltip": "",
+        "group": "c6e9b713961f2f2d",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "tempMaxB",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": -10,
+        "max": 60,
+        "step": 0.5,
+        "className": "",
+        "x": 1130,
+        "y": 880,
+        "wires": [
+            [
+                "97aeb0d24f09eb9e"
+            ]
+        ]
+    },
+    {
+        "id": "97aeb0d24f09eb9e",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set tempMax",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tempMaxB",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1130,
+        "y": 840,
+        "wires": [
+            [
+                "d12a806a80b9c0fb"
+            ]
+        ]
+    },
+    {
+        "id": "0510310b743d80d9",
+        "type": "ui_numeric",
+        "z": "0bdb569e9b5668b5",
+        "name": "Hum Min",
+        "label": "Hum Min (%)",
+        "tooltip": "",
+        "group": "c6e9b713961f2f2d",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "humMinB",
+        "topicType": "str",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "className": "",
+        "x": 1120,
+        "y": 960,
+        "wires": [
+            [
+                "8e5360ab722dfecc"
+            ]
+        ]
+    },
+    {
+        "id": "8e5360ab722dfecc",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Set humMin",
+        "rules": [
+            {
+                "t": "set",
+                "p": "humMinB",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 1130,
+        "y": 920,
+        "wires": [
+            [
+                "d12a806a80b9c0fb"
+            ]
+        ]
+    },
+    {
+        "id": "e976b5fd2d222db5",
+        "type": "inject",
+        "z": "0bdb569e9b5668b5",
+        "name": "Init Settings",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1370,
+        "y": 760,
+        "wires": [
+            [
+                "d12a806a80b9c0fb"
+            ]
+        ]
+    },
+    {
+        "id": "d12a806a80b9c0fb",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Build Settings Payload",
+        "func": "// read all four values from flow\nlet soilMinB = flow.get('soilMinB') || 3000;\nlet soilMaxB = flow.get('soilMaxB') || 3950;\nlet tempMaxB = flow.get('tempMaxB') || 30;\nlet humMinB  = flow.get('humMinB')  || 35;\n\nmsg.payload = { soilMinB, soilMaxB, tempMaxB, humMinB };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1360,
+        "y": 800,
+        "wires": [
+            [
+                "ea6e6fc86a9fce64"
+            ]
+        ]
+    },
+    {
+        "id": "ea6e6fc86a9fce64",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "c6e9b713961f2f2d",
+        "name": "Show Current Settings",
+        "order": 5,
+        "width": 12,
+        "height": 3,
+        "format": "<div style=\"padding:8px; border:1px solid #ccc;\">\n  <strong>Current Thresholds:</strong><br/>\n  Soil Min: {{msg.payload.soilMinB}}<br/>\n  Soil Max: {{msg.payload.soilMaxB}}<br/>\n  Temp Max: {{msg.payload.tempMaxB}}°C<br/>\n  Hum Min:  {{msg.payload.humMinB}}%<br/>\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1360,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5afc1d7b5adce986",
+        "type": "comment",
+        "z": "0bdb569e9b5668b5",
+        "name": "Sensor Settings B:",
+        "info": "",
+        "x": 1110,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "c199f5c5de1f1327",
+        "type": "ui_dropdown",
+        "z": "0bdb569e9b5668b5",
+        "name": "Pump B Mode Dropdown",
+        "label": "Pump B Mode",
+        "tooltip": "",
+        "place": "",
+        "group": "f0c4ef3048cb9024",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Automatic",
+                "value": "auto",
+                "type": "str"
+            },
+            {
+                "label": "Manual",
+                "value": "manual",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 130,
+        "y": 840,
+        "wires": [
+            [
+                "8d99d78956aeb244",
+                "953cddbe7457fbd5"
+            ]
+        ]
+    },
+    {
+        "id": "8d99d78956aeb244",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Sync Mode to Flow + UI",
+        "func": "// Store mode in flow\nflow.set(\"mode\", msg.payload);\n\n// Send to both dropdowns if not already from that node\nif (msg.from !== \"farmer\") {\n    node.send({\n        payload: msg.payload,\n        ui_control: { options: [\n            { label: \"Automatic\", value: \"auto\" },\n            { label: \"Manual\", value: \"manual\" }\n        ] },\n        from: \"monitoring\",\n        _dropdown: \"d35e6ce2263b6512\" // Farmer dropdown\n    });\n}\n\nif (msg.from !== \"monitoring\") {\n    node.send({\n        payload: msg.payload,\n        ui_control: { options: [\n            { label: \"Automatic\", value: \"auto\" },\n            { label: \"Manual\", value: \"manual\" }\n        ] },\n        from: \"farmer\",\n        _dropdown: \"094b7869498d6d90\" // Monitoring dropdown\n    });\n}\n\n// Also update buttons\nreturn { payload: msg.payload };",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 800,
+        "wires": [
+            [
+                "ad5d3d656c12ee15",
+                "d2da15ce70f94fdd"
+            ]
+        ]
+    },
+    {
+        "id": "ad5d3d656c12ee15",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "f0c4ef3048cb9024",
+        "name": "Mode Display (Monitoring)",
+        "order": 6,
+        "width": 5,
+        "height": 1,
+        "format": "<div style=\"font-weight:bold;font-size:16px\">Mode: <span style=\"color:#2196F3\">{{msg.payload === 'manual' ? 'Manual' : 'Automatic'}}</span></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2da15ce70f94fdd",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "group_GHB",
+        "name": "Mode Display (Farmer)",
+        "order": 3,
+        "width": 10,
+        "height": 1,
+        "format": "<div style=\"font-weight:bold;font-size:16px\">Mode: <span style=\"color:#2196F3\">{{msg.payload === 'manual' ? 'Manual' : 'Automatic'}}</span></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 680,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66158f55a2cb432d",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "f0c4ef3048cb9024",
+        "name": "Pump B Buttons (Template)",
+        "order": 7,
+        "width": 5,
+        "height": 1,
+        "format": "<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(payload) {\n        scope.manualMode = payload === \"manual\";\n    });\n    scope.sendIfAllowed = function(state) {\n        if (state === \"ON\" || state === \"OFF\") {\n            scope.send({ payload: state });\n        }\n    };\n})(scope);\n</script>\n\n<div ng-if=\"manualMode\">\n  <md-button class=\"md-raised md-primary\" ng-click=\"sendIfAllowed('ON')\">Pump ON</md-button>\n  <md-button class=\"md-raised md-warn\"    ng-click=\"sendIfAllowed('OFF')\">Pump OFF</md-button>\n</div>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 800,
+        "y": 840,
+        "wires": [
+            [
+                "e454e554f985325b",
+                "5b625d8320605dee"
+            ]
+        ]
+    },
+    {
+        "id": "e454e554f985325b",
+        "type": "switch",
+        "z": "0bdb569e9b5668b5",
+        "name": "Filter ON/OFF",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 880,
+        "y": 940,
+        "wires": [
+            [
+                "mqtt_B"
+            ],
+            [
+                "mqtt_B"
+            ]
+        ]
+    },
+    {
+        "id": "4e2c3d96e669b1d6",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "",
+        "group": "f0c4ef3048cb9024",
+        "order": 9,
+        "width": 6,
+        "height": 5,
+        "label": "Soil Moisture",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "4095",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 110,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7843b5615560b8fb",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "",
+        "group": "f0c4ef3048cb9024",
+        "order": 11,
+        "width": 6,
+        "height": 5,
+        "label": "Humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 520,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "013bbe5036a79dd0",
+        "type": "ui_chart",
+        "z": "0bdb569e9b5668b5",
+        "name": "",
+        "group": "f0c4ef3048cb9024",
+        "order": 10,
+        "width": 6,
+        "height": 5,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "step",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-10",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 310,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4e74c89f21c6b8a",
+        "type": "ui_gauge",
+        "z": "0bdb569e9b5668b5",
+        "name": "Soil Moisture",
+        "group": "f0c4ef3048cb9024",
+        "order": 3,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Soil Moisture",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "4095",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 110,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "842ed7b7d8125678",
+        "type": "ui_gauge",
+        "z": "0bdb569e9b5668b5",
+        "name": "Humidity",
+        "group": "f0c4ef3048cb9024",
+        "order": 5,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 520,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "d8de7c6ff00cc569",
+        "type": "ui_gauge",
+        "z": "0bdb569e9b5668b5",
+        "name": "Temperature",
+        "group": "f0c4ef3048cb9024",
+        "order": 4,
+        "width": 6,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 310,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "72973622240f21c5",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Send Mode",
+        "func": "msg.payload = flow.get(\"mode\") || \"auto\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 620,
+        "wires": [
+            [
+                "ae3dccc2bdbbe519"
+            ]
+        ]
+    },
+    {
+        "id": "f05bc7ab8d510a44",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Store mode in flow",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mode",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 390,
+        "y": 620,
+        "wires": [
+            [
+                "72973622240f21c5"
+            ]
+        ]
+    },
+    {
+        "id": "953cddbe7457fbd5",
+        "type": "change",
+        "z": "0bdb569e9b5668b5",
+        "name": "Store modeB in flow",
+        "rules": [
+            {
+                "t": "set",
+                "p": "modeB",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "x": 380,
+        "y": 840,
+        "wires": [
+            [
+                "5b625d8320605dee"
+            ]
+        ]
+    },
+    {
+        "id": "5b625d8320605dee",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Send modeB",
+        "func": "msg.payload = flow.get(\"modeB\") || \"auto\";\nreturn msg;",
+        "outputs": 1,
+        "x": 590,
+        "y": 840,
+        "wires": [
+            [
+                "66158f55a2cb432d"
+            ]
+        ]
+    },
+    {
+        "id": "1efc88c1f3c04299",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "f0c4ef3048cb9024",
+        "name": "Crop Info Card Mnt B",
+        "order": 2,
+        "width": 6,
+        "height": 9,
+        "format": "<div style=\"padding:8px; border:1px solid #ddd; border-radius:4px;\">\n  <h4 style=\"margin:0 0 6px;\">\n    {{msg.payload.data.common_name || '—'}}\n    <small style=\"font-weight:normal; color:#666;\">\n      ({{msg.payload.data.scientific_name || '—'}})\n    </small>\n  </h4>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>Family:</strong>\n    {{msg.payload.data.family.common_name || msg.payload.data.family || '—'}}\n  </p>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>Sowing:</strong>\n    {{msg.payload.data.sowing || 'Unknown'}}\n  </p>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>pH Range:</strong>\n    {{ (msg.payload.data.growth && msg.payload.data.growth.ph_minimum)\n    ? msg.payload.data.growth.ph_minimum\n    : 5.5 }}\n    –\n    {{ (msg.payload.data.growth && msg.payload.data.growth.ph_maximum)\n    ? msg.payload.data.growth.ph_maximum\n    : 7.0 }}\n  </p>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>Ideal Temperature:</strong>\n    {{ (msg.payload.data.growth\n    && msg.payload.data.growth.minimum_temperature\n    && msg.payload.data.growth.minimum_temperature.celsius)\n    ? msg.payload.data.growth.minimum_temperature.celsius\n    : 15 }} °C\n    –\n    {{ (msg.payload.data.growth\n    && msg.payload.data.growth.maximum_temperature\n    && msg.payload.data.growth.maximum_temperature.celsius)\n    ? msg.payload.data.growth.maximum_temperature.celsius\n    : 30 }} °C\n  </p>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>Days to Harvest:</strong>\n    {{ msg.payload.data.days_to_harvest || 60 }}\n  </p>\n\n  <div ng-if=\"msg.payload.data.image_url\" style=\"text-align:center; margin-top:8px;\">\n    <img\n      ng-src=\"{{msg.payload.data.image_url}}\"\n      alt=\"{{msg.payload.data.common_name}}\"\n      style=\"\n        width:200px;\n        height:260px;\n        object-fit:contain;\n        border-radius:4px;\n      \"\n    />\n  </div>\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1380,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4c046b0ea9b49f0e",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "dashboard_group",
+        "name": "Crop Info Card Mnt A",
+        "order": 2,
+        "width": 6,
+        "height": 9,
+        "format": "<div style=\"padding:8px; border:1px solid #ddd; border-radius:4px;\">\n  <h4 style=\"margin:0 0 6px;\">\n    {{msg.payload.data.common_name || '—'}}\n    <small style=\"font-weight:normal; color:#666;\">\n      ({{msg.payload.data.scientific_name || '—'}})\n    </small>\n  </h4>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>Family:</strong>\n    {{msg.payload.data.family.common_name || msg.payload.data.family || '—'}}\n  </p>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>Sowing:</strong>\n    {{msg.payload.data.sowing || 'Unknown'}}\n  </p>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>pH Range:</strong>\n    {{ (msg.payload.data.growth && msg.payload.data.growth.ph_minimum)\n    ? msg.payload.data.growth.ph_minimum\n    : 5.5 }}\n    –\n    {{ (msg.payload.data.growth && msg.payload.data.growth.ph_maximum)\n    ? msg.payload.data.growth.ph_maximum\n    : 7.0 }}\n  </p>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>Ideal Temperature:</strong>\n    {{ (msg.payload.data.growth\n    && msg.payload.data.growth.minimum_temperature\n    && msg.payload.data.growth.minimum_temperature.celsius)\n    ? msg.payload.data.growth.minimum_temperature.celsius\n    : 15 }} °C\n    –\n    {{ (msg.payload.data.growth\n    && msg.payload.data.growth.maximum_temperature\n    && msg.payload.data.growth.maximum_temperature.celsius)\n    ? msg.payload.data.growth.maximum_temperature.celsius\n    : 30 }} °C\n  </p>\n\n  <p style=\"margin:4px 0; font-size:13px;\">\n    <strong>Days to Harvest:</strong>\n    {{ msg.payload.data.days_to_harvest || 60 }}\n  </p>\n\n  <div ng-if=\"msg.payload.data.image_url\" style=\"text-align:center; margin-top:8px;\">\n    <img\n      ng-src=\"{{msg.payload.data.image_url}}\"\n      alt=\"{{msg.payload.data.common_name}}\"\n      style=\"\n        width:200px;\n        height:260px;\n        object-fit:contain;\n        border-radius:4px;\n      \"\n    />\n  </div>\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1380,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71fd139fb98c17da",
+        "type": "debug",
+        "z": "0bdb569e9b5668b5",
+        "name": "rain",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "96492fac3831e4dc",
+        "type": "function",
+        "z": "0bdb569e9b5668b5",
+        "name": "Extract Weather Info",
+        "func": "let data = msg.payload || {};\nlet forecast = data.list || [];\nlet location = data.city || {};\n\nlet next = forecast[0] || {}; // take the *next* 3-hour forecast\nlet weatherEntry = next.weather?.[0] || {};\n\nmsg.payload = {\n    city: location.name || \"Unknown\",\n    country: location.country || \"N/A\",\n    forecast_time: next.dt_txt || \"N/A\",\n    weather: weatherEntry.main || \"N/A\",\n    description: weatherEntry.description || \"N/A\",\n    temp: next.main?.temp ?? \"N/A\",\n    feels_like: next.main?.feels_like ?? null,\n    humidity: next.main?.humidity ?? \"N/A\",\n    wind: next.wind?.speed ?? \"N/A\",\n    rain: next.rain?.[\"3h\"] || 0\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 280,
+        "wires": [
+            [
+                "f8d9134776149409",
+                "631487f69cda3876"
+            ]
+        ]
+    },
+    {
+        "id": "f8d9134776149409",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "dashboard_group",
+        "name": "Weather A",
+        "order": 8,
+        "width": 5,
+        "height": 6,
+        "format": "<div style=\"padding:10px; font-size: 15px; line-height: 1.6;\">\n  <strong>📅 {{msg.payload.forecast_time}}</strong><br/>\n\n  📍 Location: {{msg.payload.city}}, {{msg.payload.country}}<br/>\n\n  🌀 Condition:\n  <span ng-if=\"msg.payload.weather.includes('Rain')\">🌧️</span>\n  <span ng-if=\"msg.payload.weather.includes('Cloud')\">☁️</span>\n  <span ng-if=\"msg.payload.weather.includes('Clear')\">☀️</span>\n  <span ng-if=\"msg.payload.weather.includes('Snow')\">❄️</span>\n  {{msg.payload.weather}} ({{msg.payload.description}})<br/>\n\n  🌡 Temperature (outside): {{msg.payload.temp}} °C\n  <span ng-if=\"msg.payload.feels_like !== null\"> (Feels like {{msg.payload.feels_like}} °C)</span><br/>\n\n  💧 Humidity: {{msg.payload.humidity}}%<br/>\n  💨 Wind: {{msg.payload.wind}} m/s<br/>\n  🌧 Expected Rain in 3h: {{msg.payload.rain}} mm\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 790,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "631487f69cda3876",
+        "type": "ui_template",
+        "z": "0bdb569e9b5668b5",
+        "group": "f0c4ef3048cb9024",
+        "name": "Weather B",
+        "order": 8,
+        "width": 5,
+        "height": 6,
+        "format": "<div style=\"padding:10px; font-size: 15px; line-height: 1.6;\">\n  <strong>📅 {{msg.payload.forecast_time}}</strong><br/>\n\n  📍 Location: {{msg.payload.city}}, {{msg.payload.country}}<br/>\n\n  🌀 Condition:\n  <span ng-if=\"msg.payload.weather.includes('Rain')\">🌧️</span>\n  <span ng-if=\"msg.payload.weather.includes('Cloud')\">☁️</span>\n  <span ng-if=\"msg.payload.weather.includes('Clear')\">☀️</span>\n  <span ng-if=\"msg.payload.weather.includes('Snow')\">❄️</span>\n  {{msg.payload.weather}} ({{msg.payload.description}})<br/>\n\n  🌡 Temperature (outside): {{msg.payload.temp}} °C\n  <span ng-if=\"msg.payload.feels_like !== null\"> (Feels like {{msg.payload.feels_like}} °C)</span><br/>\n\n  💧 Humidity: {{msg.payload.humidity}}%<br/>\n  💨 Wind: {{msg.payload.wind}} m/s<br/>\n  🌧 Expected Rain in 3h: {{msg.payload.rain}} mm\n</div>",
+        "storeOutMessages": false,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 790,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "mqtt_broker_local",
+        "type": "mqtt-broker",
+        "name": "Local Mosquitto",
+        "broker": "192.168.1.39",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "dashboard_group",
+        "type": "ui_group",
+        "name": "Area A",
+        "tab": "dashboard_tab",
+        "order": 1,
+        "disp": true,
+        "width": 29,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c821e52d1149b916",
+        "type": "sqlitedb",
+        "db": "C:\\Users\\DaMi\\Downloads\\pfe\\Code\\smartgardenDB\\smartgarden.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "group_sensor",
+        "type": "ui_group",
+        "name": "Greenhouse A Sensor Charts",
+        "tab": "tab_history",
+        "order": 1,
+        "disp": true,
+        "width": 14,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "group_irrigation",
+        "type": "ui_group",
+        "name": "Greenhouse A Irrigations",
+        "tab": "tab_history",
+        "order": 2,
+        "disp": true,
+        "width": 14,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "group_GHA",
+        "type": "ui_group",
+        "name": "Area A",
+        "tab": "tab_farmer",
+        "order": 1,
+        "disp": true,
+        "width": 15,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "settingsGroup",
+        "type": "ui_group",
+        "name": " Thresholds Area A",
+        "tab": "settingsTab",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "group_GHB",
+        "type": "ui_group",
+        "name": "Area B",
+        "tab": "tab_farmer",
+        "order": 2,
+        "disp": true,
+        "width": 15,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c6e9b713961f2f2d",
+        "type": "ui_group",
+        "name": "Thresholds Area B",
+        "tab": "settingsTab",
+        "order": 2,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f0c4ef3048cb9024",
+        "type": "ui_group",
+        "name": "Area B (Fake ESP32)",
+        "tab": "dashboard_tab",
+        "order": 2,
+        "disp": true,
+        "width": 29,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dashboard_tab",
+        "type": "ui_tab",
+        "name": "Sensor Monitoring",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "tab_history",
+        "type": "ui_tab",
+        "name": "History",
+        "icon": "timeline",
+        "order": 2
+    },
+    {
+        "id": "tab_farmer",
+        "type": "ui_tab",
+        "name": "Farmer",
+        "icon": "person",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "settingsTab",
+        "type": "ui_tab",
+        "name": "Sensor Settings",
+        "icon": "settings",
+        "order": 4
+    }
+]
