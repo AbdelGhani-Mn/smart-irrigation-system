@@ -10,3 +10,6 @@ A full-stack IoT-based smart irrigation system that automates watering decisions
 
 ![Sensor Settings](UI/SensorSettings.png)
 ![Water Tank](UI/WaterTank.png)
+## 🌱 Crop & Recommendation System
+
+![Farmer](UI/Farmer.png)
