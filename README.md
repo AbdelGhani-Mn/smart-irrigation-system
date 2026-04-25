@@ -1,6 +1,6 @@
 # 🚀 Final Year Project: WoT Smart Irrigation System with ESP32 and MQTT
 
-A full-stack IoT-based smart irrigation system that automates watering decisions using real-time environmental data, MQTT communication, and external weather/crop APIs.
+A full-stack WoT-based smart irrigation system that automates watering decisions using real-time environmental data, MQTT communication, and external weather/crop APIs.
 
 ---
 
@@ -75,7 +75,7 @@ ESP32-based system with:
 
 ## 🛠️ Technologies Used
 
-- **IoT:** ESP32  
+- **WoT:** ESP32/MQTT/Node-RED  
 - **Communication:** MQTT  
 - **Backend Logic:** Node-RED  
 - **Database:** SQLite  
