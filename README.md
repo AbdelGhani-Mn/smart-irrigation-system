@@ -1,6 +1,12 @@
 # Smart Irrigation System with Real-Time Monitoring
 A full-stack IoT-based smart irrigation system that automates watering decisions using environmental data, real-time monitoring, and external weather/crop-type APIs.
-## 📸 Screenshots
+## 📸 Dashboard Overview
 
-![Dashboard](UI/Monitoring.png)
-![Dashboard](UI/Farmer.png)
+![Monitoring](UI/Monitoring.png)
+## 📊 Data Visualization
+
+![History](UI/History.png)
+## ⚙️ System Control & Configuration
+
+![Sensor Settings](UI/Sensor Settings.png)
+![Water Tank](UI/Water Tank.png)
