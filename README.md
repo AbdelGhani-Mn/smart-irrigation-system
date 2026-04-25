@@ -1,4 +1,4 @@
-# 🚀 Smart Irrigation System with Real-Time Monitoring
+# 🚀 Final Year Project: WoT Smart Irrigation System with ESP32 and MQTT
 
 A full-stack IoT-based smart irrigation system that automates watering decisions using real-time environmental data, MQTT communication, and external weather/crop APIs.
 
