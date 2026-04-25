@@ -2,4 +2,5 @@
 A full-stack IoT-based smart irrigation system that automates watering decisions using environmental data, real-time monitoring, and external weather/crop-type APIs.
 ## 📸 Screenshots
 
-![Dashboard](UI/Monitoring.png)
+![Dashboard](UI/Monitoring.png)(UI/Farmer.png)
+
