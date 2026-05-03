@@ -98,9 +98,10 @@ ESP32-based system with:
 ## 📂 Project Setup
 
 1. Import `flows.json` into Node-RED  
-2. Configure MQTT broker connection  
-3. Set up SQLite database  
-4. Run Node-RED and open dashboard  
+2. Set up your ESP32 or Arduino and all the sensors+actuators needed  
+3. Configure MQTT broker connection  
+4. Set up SQLite database  
+5. Run Node-RED and open dashboard  
 
 ---
 
